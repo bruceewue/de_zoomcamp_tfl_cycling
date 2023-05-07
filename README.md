@@ -23,6 +23,9 @@ StartStation Id  | A distinct identifier for the origin station
 StartStation Name  | The name of the station where the ride begins
 
 # Overview of the Pipeline:
+
+![system_pipeline](images/system_pipeline.png)
+
 The project utilizes the following tools and technologies to create an end-to-end data engineering pipeline:
 
 1. Google Cloud Platform (GCP): Cloud infrastructure for data storage, processing, and analytics.
@@ -39,7 +42,12 @@ The project utilizes the following tools and technologies to create an end-to-en
 ## The pipeline can be broken down into the following steps:
 
 a. __Data Ingestion__:   
-Using Apache Airflow, a Directed Acyclic Graph (DAG) will be scheduled to initiate the data ingestion process. The CSV files containing cycling usage data will be downloaded and converted into Parquet format for efficient storage and processing. These Parquet files will then be stored in Google Cloud Storage (GCS).
+Using Apache Airflow, a Directed Acyclic Graph (DAG) will be scheduled to initiate the data ingestion process. The CSV files containing cycling usage data will be downloaded and converted into Parquet format for efficient storage and processing. These Parquet files will then be stored in Google Cloud Storage (GCS).   
+
+Airflow pipeline:
+![airflow_task](images/airflow_task.png)
+
+
 
 b. __Data Transformation__:   
 PySpark, in conjunction with Google Cloud Dataproc, will be employed to perform the necessary data transformations on the Parquet files. These transformations will involve cleaning, filtering, and aggregating the data to derive meaningful insights.
